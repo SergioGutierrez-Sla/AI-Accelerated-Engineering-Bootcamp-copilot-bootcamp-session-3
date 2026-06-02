@@ -1,0 +1,42 @@
+- Epic: Task Data Model Enhancements
+  - Story: Add optional due date field to tasks
+    - Acceptance Criteria: A task can be created without a due date.
+    - Acceptance Criteria: A task can store a due date when provided in `YYYY-MM-DD` format.
+  - Story: Add priority field with P1 P2 and P3 values
+    - Acceptance Criteria: A task supports only `P1`, `P2`, or `P3` as valid priority values.
+    - Acceptance Criteria: Any value outside `P1`, `P2`, or `P3` is not treated as a valid priority.
+  - Story: Default task priority to P3
+    - Acceptance Criteria: New tasks default to `P3` when no priority is provided.
+  - Story: Require title for task creation
+    - Acceptance Criteria: A task cannot be created without a title.
+  - Story: Ignore invalid due date values
+    - Acceptance Criteria: An invalid due date value is ignored rather than stored.
+    - Acceptance Criteria: When an invalid due date is ignored, the task is treated as having no due date.
+- Epic: Task Filtering Experience
+  - Story: Add All tasks filter
+    - Acceptance Criteria: Users can switch to an `All` filter view.
+    - Acceptance Criteria: The `All` filter shows all tasks regardless of due date.
+  - Story: Add Today tasks filter
+    - Acceptance Criteria: Users can switch to a `Today` filter view.
+    - Acceptance Criteria: The `Today` filter shows tasks with a due date matching the current date.
+  - Story: Add Overdue tasks filter
+    - Acceptance Criteria: Users can switch to an `Overdue` filter view.
+    - Acceptance Criteria: The `Overdue` filter shows tasks with due dates earlier than the current date.
+- Epic: Local-Only Task Storage
+  - Story: Keep task data stored locally
+    - Acceptance Criteria: Task data is stored locally in the application.
+    - Acceptance Criteria: No external storage dependency is required to use the app.
+  - Story: Preserve frontend-only task management flow
+    - Acceptance Criteria: The feature works without introducing backend changes.
+- Epic: Overdue Task Visibility
+  - Story: Highlight overdue tasks visually
+    - Acceptance Criteria: Tasks identified as overdue are visually differentiated from non-overdue tasks.
+- Epic: Task Sorting Improvements
+  - Story: Sort overdue tasks before other tasks
+    - Acceptance Criteria: Overdue tasks appear before non-overdue tasks in the sorted list.
+  - Story: Sort tasks by priority from P1 to P3
+    - Acceptance Criteria: Within the applicable sort order, tasks are ordered by priority from `P1` to `P3`.
+  - Story: Sort tasks by ascending due date
+    - Acceptance Criteria: Within the applicable sort order, tasks with due dates are ordered from earliest to latest.
+  - Story: Place tasks without due dates last
+    - Acceptance Criteria: Tasks without due dates appear after tasks that have due dates.
