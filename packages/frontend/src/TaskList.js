@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import {
-  List, ListItem, ListItemText, IconButton, Checkbox, Typography, Box, CircularProgress, Paper, Chip
+  List, ListItem, ListItemText, IconButton, Checkbox, Typography, Box, CircularProgress, Paper, Chip, Button
 } from '@mui/material';
 import DeleteIcon from '@mui/icons-material/Delete';
 import EditIcon from '@mui/icons-material/Edit';
@@ -61,6 +61,24 @@ function TaskList({ onEdit }) {
       fetchTasks();
     } catch (err) {
       setError('Failed to delete task');
+    }
+  };
+
+  const handleUpdatePriority = async (task, newPriority) => {
+    try {
+      await fetch(`/api/tasks/${task.id}`, {
+        method: 'PUT',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          title: task.title,
+          description: task.description,
+          due_date: task.due_date,
+          priority: newPriority,
+        }),
+      });
+      fetchTasks();
+    } catch (err) {
+      setError('Failed to update task priority');
     }
   };
 
@@ -127,7 +145,7 @@ function TaskList({ onEdit }) {
           <ListItem 
             key={task.id} 
             sx={{ 
-              pr: 18,
+              pr: 36,
               py: 1,
               mb: 1,
               borderRadius: 2,
@@ -220,6 +238,30 @@ function TaskList({ onEdit }) {
                   }}
                 />
               )}
+              <Box sx={{ display: 'flex', gap: 0.5 }}>
+                {['P1', 'P2', 'P3'].map((p) => (
+                  <Button
+                    key={p}
+                    size="small"
+                    onClick={() => handleUpdatePriority(task, p)}
+                    sx={{
+                      minWidth: 32,
+                      px: 0.75,
+                      py: 0,
+                      fontSize: '0.7rem',
+                      fontWeight: 600,
+                      borderRadius: 1,
+                      background: (task.priority || 'P3') === p ? '#07F2E6' : '#7A7A7A',
+                      color: '#fff',
+                      '&:hover': {
+                        background: (task.priority || 'P3') === p ? '#05d4cb' : '#606060',
+                      },
+                    }}
+                  >
+                    {p}
+                  </Button>
+                ))}
+              </Box>
               <Box 
                 sx={{ 
                   display: 'flex', 
