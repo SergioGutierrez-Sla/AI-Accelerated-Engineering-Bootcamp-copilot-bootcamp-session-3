@@ -1,0 +1,30 @@
+.priority-btn {
+  min-width: 36px !important;
+  padding: 2px 8px !important;
+  font-size: 0.75rem !important;
+  font-weight: 600 !important;
+  border-radius: 4px !important;
+  color: #fff !important;
+}
+
+.priority-btn--sm {
+  min-width: 32px !important;
+  padding: 0 6px !important;
+  font-size: 0.7rem !important;
+}
+
+.priority-btn--selected {
+  background-color: #07F2E6 !important;
+}
+
+.priority-btn--selected:hover {
+  background-color: #05d4cb !important;
+}
+
+.priority-btn--unselected {
+  background-color: #7A7A7A !important;
+}
+
+.priority-btn--unselected:hover {
+  background-color: #606060 !important;
+}

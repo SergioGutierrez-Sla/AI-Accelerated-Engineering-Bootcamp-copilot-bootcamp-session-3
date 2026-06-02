@@ -5,6 +5,7 @@ import {
 import DeleteIcon from '@mui/icons-material/Delete';
 import EditIcon from '@mui/icons-material/Edit';
 import EventIcon from '@mui/icons-material/Event';
+import { getPriorityButtonClassName } from './priorityButtonStyles';
 
 function TaskList({ onEdit }) {
   const [tasks, setTasks] = useState([]);
@@ -246,19 +247,7 @@ function TaskList({ onEdit }) {
                     disableElevation
                     size="small"
                     onClick={() => handleUpdatePriority(task, p)}
-                    sx={{
-                      minWidth: 32,
-                      px: 0.75,
-                      py: 0,
-                      fontSize: '0.7rem',
-                      fontWeight: 600,
-                      borderRadius: 1,
-                      backgroundColor: (task.priority || 'P3') === p ? '#07F2E6' : '#7A7A7A',
-                      color: '#fff',
-                      '&:hover': {
-                        backgroundColor: (task.priority || 'P3') === p ? '#05d4cb' : '#606060',
-                      },
-                    }}
+                    className={getPriorityButtonClassName((task.priority || 'P3') === p, true)}
                   >
                     {p}
                   </Button>

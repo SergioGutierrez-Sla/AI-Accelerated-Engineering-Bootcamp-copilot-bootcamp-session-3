@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { TextField, Button, Paper, Typography, Box } from '@mui/material';
 import AddIcon from '@mui/icons-material/Add';
 import SaveIcon from '@mui/icons-material/Save';
+import { getPriorityButtonClassName } from './priorityButtonStyles';
 
 function TaskForm({ onSave, initialTask }) {
   const [title, setTitle] = useState(initialTask?.title || '');
@@ -158,19 +159,7 @@ function TaskForm({ onSave, initialTask }) {
                 disableElevation
                 size="small"
                 onClick={() => setPriority(p)}
-                sx={{
-                  minWidth: 36,
-                  px: 1,
-                  py: 0.25,
-                  fontSize: '0.75rem',
-                  fontWeight: 600,
-                  borderRadius: 1,
-                  backgroundColor: priority === p ? '#07F2E6' : '#7A7A7A',
-                  color: '#fff',
-                  '&:hover': {
-                    backgroundColor: priority === p ? '#05d4cb' : '#606060',
-                  },
-                }}
+                className={getPriorityButtonClassName(priority === p)}
               >
                 {p}
               </Button>
