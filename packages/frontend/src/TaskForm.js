@@ -154,6 +154,8 @@ function TaskForm({ onSave, initialTask }) {
               <Button
                 key={p}
                 type="button"
+                variant="contained"
+                disableElevation
                 size="small"
                 onClick={() => setPriority(p)}
                 sx={{
@@ -163,10 +165,10 @@ function TaskForm({ onSave, initialTask }) {
                   fontSize: '0.75rem',
                   fontWeight: 600,
                   borderRadius: 1,
-                  background: priority === p ? '#07F2E6' : '#7A7A7A',
+                  backgroundColor: priority === p ? '#07F2E6' : '#7A7A7A',
                   color: '#fff',
                   '&:hover': {
-                    background: priority === p ? '#05d4cb' : '#606060',
+                    backgroundColor: priority === p ? '#05d4cb' : '#606060',
                   },
                 }}
               >

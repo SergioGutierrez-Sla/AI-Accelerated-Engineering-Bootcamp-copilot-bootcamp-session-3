@@ -242,6 +242,8 @@ function TaskList({ onEdit }) {
                 {['P1', 'P2', 'P3'].map((p) => (
                   <Button
                     key={p}
+                    variant="contained"
+                    disableElevation
                     size="small"
                     onClick={() => handleUpdatePriority(task, p)}
                     sx={{
@@ -251,10 +253,10 @@ function TaskList({ onEdit }) {
                       fontSize: '0.7rem',
                       fontWeight: 600,
                       borderRadius: 1,
-                      background: (task.priority || 'P3') === p ? '#07F2E6' : '#7A7A7A',
+                      backgroundColor: (task.priority || 'P3') === p ? '#07F2E6' : '#7A7A7A',
                       color: '#fff',
                       '&:hover': {
-                        background: (task.priority || 'P3') === p ? '#05d4cb' : '#606060',
+                        backgroundColor: (task.priority || 'P3') === p ? '#05d4cb' : '#606060',
                       },
                     }}
                   >
